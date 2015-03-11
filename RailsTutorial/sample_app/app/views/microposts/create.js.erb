@@ -1,0 +1,11 @@
+$('#flash').html('<%= escape_javascript(render('layouts/flash')) %>');
+$('#microposts').html('<%= escape_javascript(render('shared/feed')) %>');
+$('#micropost_content').val('');
+$('#error_explanation').html('<%= escape_javascript(render('shared/error_messages_body', object: @micropost)) %>');
+$('.user_info').html('<%= escape_javascript(render('shared/user_info')) %>');
+
+$('#flash').fadeIn('fast');
+
+setTimeout(function() {
+    $('#flash').fadeOut('slow');
+}, 2000);

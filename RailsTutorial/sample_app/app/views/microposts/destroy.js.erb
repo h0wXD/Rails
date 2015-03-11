@@ -1,0 +1,9 @@
+$('#flash').html('<%= escape_javascript(render('layouts/flash')) %>');
+$('#microposts').html('<%= escape_javascript(render('shared/feed')) %>');
+$('.user_info').html('<%= escape_javascript(render('shared/user_info')) %>');
+
+$('#flash').fadeIn('fast');
+
+setTimeout(function() {
+    $('#flash').fadeOut('slow');
+}, 2000);

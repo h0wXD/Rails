@@ -85,6 +85,10 @@ class User < ActiveRecord::Base
     Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
   end
 
+  def feed_paginate(params)
+    self.feed.paginate(page: params[:page], per_page: 3)
+  end
+
   # Follows a user.
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
